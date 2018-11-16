@@ -5,7 +5,7 @@ import React from 'react';
 const MovieForm = ({ movies }) => {
     return (
         <form style={{ paddingTop: '60px' }}>
-            <img src={movies.Poster} alt="Poster not find" />
+            <img src={movies.Poster} alt="Not lucky enough, no poster for this movie" />
             <div>
                 <p>    {movies.Title}</p>
                 <p>     {movies.Year}</p>

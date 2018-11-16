@@ -4,7 +4,9 @@ import MovieForm from './MovieForm';
 const MovieList = ({ movies }) => {
     return (
         <div>
-            <MovieForm movies={movies[0]? movies[0]: []}/>
+            {console.log(movies)}
+            {console.log(movies.length ===0)}
+            <MovieForm movies={movies.length === 0? []: movies[movies.length-1]}/>
         </div>
     )
 }

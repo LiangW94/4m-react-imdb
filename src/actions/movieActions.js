@@ -22,9 +22,9 @@ export function searchMovieSuccess(movies) {
     return { type: actionTypes.SEARCH_MOVIE_SUCCESS, movies }
 }
 
-export function searchMovie() {
+export function searchMovie(title) {
     return function (dispatch) {
-        fetch('http://www.omdbapi.com/?i=tt0848228&apikey=f45d6202')
+        fetch(`http://www.omdbapi.com/?t=${title}&apikey=f45d6202`)
             .then(res => {
                 if (!res.ok) { throw Error(res.statusText) };
                 return res.json();

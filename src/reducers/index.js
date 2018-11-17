@@ -1,8 +1,10 @@
-import {combineReducers} from 'redux';
-import movies from './moviesReducer'
+import { combineReducers } from 'redux';
+import movies from './moviesReducer';
+import ajaxStatus from './ajaxStatusReducer';
 
 const rootReducer = combineReducers({
-    movies 
+    movies,
+    ajaxStatus
 });
 
 export default rootReducer;

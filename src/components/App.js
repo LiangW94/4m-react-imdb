@@ -20,17 +20,25 @@ class App extends Component {
     this.onSearchClick = this.onSearchClick.bind(this)
     this.onLuckyClick = this.onLuckyClick.bind(this)
     this.onSearchValueChange = this.onSearchValueChange.bind(this)
+    this.onEnterPress = this.onEnterPress.bind(this)
   }
 
-  onSearchClick(){
+  onSearchClick() {
     this.props.actions.searchMovie(this.state.searchTitle)
   }
 
-  onLuckyClick(){
+  onEnterPress(e) {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      this.props.actions.searchMovie(this.state.searchTitle)
+    }
+  }
+
+  onLuckyClick() {
     this.props.actions.luckyMovie()
   }
 
-  onSearchValueChange(e){
+  onSearchValueChange(e) {
     e.preventDefault();
     this.setState({
       searchTitle: e.target.value
@@ -40,12 +48,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header 
-        onSearchClick={this.onSearchClick}
-        onLuckyClick={this.onLuckyClick}
-        onSearchValueChange={this.onSearchValueChange}
+        <Header
+          onSearchClick={this.onSearchClick}
+          onLuckyClick={this.onLuckyClick}
+          onSearchValueChange={this.onSearchValueChange}
+          onEnterPress={this.onEnterPress}
         />
-        <MovieList movies={this.props.movies} />
+        <MovieList movies={this.props.movies} loading={this.props.loading} />
         {/* <Route path="/Todo" component={TodoPage} /> */}
         <Footer />
       </div>
@@ -55,7 +64,8 @@ class App extends Component {
 
 function mapStateToProps(state, ownProps) {
   return {
-    movies: state.movies
+    movies: state.movies,
+    loading: state.ajaxStatus > 0
   }
 }
 

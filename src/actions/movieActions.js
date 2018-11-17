@@ -1,25 +1,25 @@
 import * as actionTypes from './actionTypes';
 import { beginAjaxCall, endAjaxCall } from './ajaxStatusActions'
 
-export function loadMovieSuccess(movies) {
-    return { type: actionTypes.LOAD_MOVIE_SUCCESS, movies }
-}
+// export function loadMovieSuccess(movies) {
+//     return { type: actionTypes.LOAD_MOVIE_SUCCESS, movies }
+// }
 
-export function loadMovie() {
-    return function (dispatch) {
-        dispatch(beginAjaxCall())
-        fetch('http://www.omdbapi.com/?i=tt3896198&apikey=f45d6202')
-            .then(res => {
-                if (!res.ok) { throw Error(res.statusText) };
-                return res.json();
-            })
-            .then(movies => {
-                dispatch(loadMovieSuccess(movies));
-                dispatch(endAjaxCall())
-            })
-            .catch(e => { throw Error(e) })
-    }
-}
+// export function loadMovie() {
+//     return function (dispatch) {
+//         dispatch(beginAjaxCall())
+//         fetch('http://www.omdbapi.com/?i=tt3896198&apikey=f45d6202')
+//             .then(res => {
+//                 if (!res.ok) { throw Error(res.statusText) };
+//                 return res.json();
+//             })
+//             .then(movies => {
+//                 dispatch(loadMovieSuccess(movies));
+//                 dispatch(endAjaxCall())
+//             })
+//             .catch(e => { throw Error(e) })
+//     }
+// }
 
 export function searchMovieSuccess(movies) {
     return { type: actionTypes.SEARCH_MOVIE_SUCCESS, movies }

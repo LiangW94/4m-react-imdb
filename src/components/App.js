@@ -7,7 +7,8 @@ import MovieList from './MovieList/MovieList';
 import './App.css';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as movieActions from '../actions/movieActions'
+import * as movieActions from '../actions/movieActions';
+import SearchMovie from './MovieList/SearchMovie';
 
 class App extends Component {
   constructor(props, context) {
@@ -48,7 +49,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header
+        <Header />
+        <SearchMovie
           onSearchClick={this.onSearchClick}
           onLuckyClick={this.onLuckyClick}
           onSearchValueChange={this.onSearchValueChange}

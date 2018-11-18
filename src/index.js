@@ -5,9 +5,9 @@ import './style/bootstrap.min.css';
 import App from './components/App';
 import * as serviceWorker from './util/serviceWorker';
 import { Provider } from 'react-redux';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import configureStore from './store/configureStore';
-// import {loadMovie} from './actions/movieActions';
+import TodoPage from './components/Todo/TodoPage';
 
 const store = configureStore();
 // store.dispatch(loadMovie());
@@ -15,7 +15,11 @@ const store = configureStore();
 ReactDOM.render(
     <Provider store={store}>
         <BrowserRouter>
-            <App />
+            <Switch>
+                <Route path="/" component={App} exact/>
+                <Route path="/Movielist" component={TodoPage} />
+            </Switch>
+
         </BrowserRouter>
     </Provider>
     , document.getElementById('root'));

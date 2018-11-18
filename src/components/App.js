@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import Header from '../components/Common/Header/Header';
 import Footer from '../components/Common/Footer/Footer';
 import MovieList from './MovieList/MovieList';
-// import TodoPage from './Todo/TodoPage'
-// import { Route } from 'react-router-dom';
 import './App.css';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -57,8 +55,7 @@ class App extends Component {
           onEnterPress={this.onEnterPress}
         />
         <MovieList movies={this.props.movies} loading={this.props.loading} />
-        {/* <Route path="/Todo" component={TodoPage} /> */}
-        <Footer />
+        <Footer url='Movielist' footerText='Movie List'/>
       </div>
     );
   }

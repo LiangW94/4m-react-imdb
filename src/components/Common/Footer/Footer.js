@@ -1,13 +1,17 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-class Footer extends Component {
-    render() {
+const Footer = ({ url, footerText }) => {
     return (
         <div>
-            <nav className="navbar fixed-bottom navbar-inverse bg-dark"><button className="btn btn-info">Add a movie</button></nav>
+            <nav className="navbar fixed-bottom navbar-inverse bg-dark">
+                <button className="btn btn-info">
+                    <Link to={url} style={{ color: 'white' }}>{footerText}</Link>
+                </button>
+            </nav>
         </div>
-    );
-  }
+    )
 }
+
 
 export default Footer;

@@ -8,6 +8,7 @@ import { Provider } from 'react-redux';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import configureStore from './store/configureStore';
 import MovieManagePage from './components/Todo/MovieManagePage';
+import AddMoviePage from './components/Todo/AddMoviePage';
 
 const store = configureStore();
 // store.dispatch(loadMovie());
@@ -16,8 +17,9 @@ ReactDOM.render(
     <Provider store={store}>
         <BrowserRouter>
             <Switch>
-                <Route path="/" component={App} exact/>
+                <Route path="/" component={App} exact />
                 <Route path="/Movielist" component={MovieManagePage} />
+                <Route path="/Addmovie" component={AddMoviePage} />
             </Switch>
 
         </BrowserRouter>

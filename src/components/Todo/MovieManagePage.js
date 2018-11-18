@@ -1,15 +1,51 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as manageMoviesActions from '../../actions/manageMoviesActions';
+import LocalMovieList from './LocalMovieList';
 import Header from '../Common/Header/Header';
 import Footer from '../Common/Footer/Footer';
 
-const MovieManagePage = () => {
-    return (
-        <div className="MovieManagePage">
-        <Header />
+class MovieManagePage extends Component {
+    constructor(props, context) {
+        super(props, context);
 
-        <Footer url='/' footerText='Back Home'/>
-      </div>
-    )
+        // this.state = {
+        //     localMovies: Object.assign({}, props.localMovies),
+        // };
+
+     this.handleRemove = this.handleRemove.bind(this);
+    }
+
+    handleRemove(e){
+        console.log("from the parent: " + e);
+    }
+
+    render() {
+        return (
+            <div className="MovieManagePage">
+                <Header />
+                <LocalMovieList
+                    localMovies={this.props.localMovies}
+                    addMovie={this.addMovie}
+                    handleRemove={this.handleRemove}
+                />
+                <Footer url='/' footerText='Back Home' />
+            </div>
+        );
+    }
 }
 
-export default MovieManagePage;
+function mapStateToProps(state, ownProps) {
+    return {
+        localMovies: state.localMovies
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        actions: bindActionCreators(manageMoviesActions, dispatch)
+    };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(MovieManagePage);

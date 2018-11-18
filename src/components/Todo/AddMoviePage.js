@@ -27,10 +27,13 @@ class LocalMoviePage extends Component {
 
     saveCourse(event) {
         event.preventDefault();
-        
+
         this.props.actions.createMovie(this.state.localMovies);
 
         this.props.history.push('/Movielist');
+    }
+    generateId() {
+
     }
 
     render() {
@@ -50,6 +53,7 @@ class LocalMoviePage extends Component {
 
 function mapStateToProps(state, ownProps) {
     let localMovies = { Title: '', Year: '', Director: '', Country: '' };
+
     return {
         localMovies: localMovies
     }

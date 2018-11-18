@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 const LocalMovieList = ({ localMovies, handleRemove }) => {
     return (
         <div style={{ maxWidth: '60%', margin: '160px auto' }}>
-            <Link className="btn btn-secondary" to='/Addmovie' style={{margin:'30px'}}>Add a movie?</Link>
+            <Link className="btn btn-secondary" to='/Addmovie' style={{ margin: '30px' }}>Add a movie?</Link>
             <table className="table">
                 <thead>
                     <tr>
@@ -17,7 +17,7 @@ const LocalMovieList = ({ localMovies, handleRemove }) => {
                 </thead>
                 <tbody>
                     {localMovies.map((movie, index) =>
-                        <MovieListRow key={index} movie={movie} onClick={handleRemove} id={index} />
+                        <MovieListRow key={index} movie={movie.localMovies} onClick={handleRemove} id={index} />
                     )}
                 </tbody>
             </table>

@@ -13,7 +13,8 @@ class App extends Component {
     super(props, context);
 
     this.state = {
-      searchTitle: ''
+      searchTitle: '',
+      searchTitleValid: true
     };
 
     this.onSearchClick = this.onSearchClick.bind(this)
@@ -23,13 +24,25 @@ class App extends Component {
   }
 
   onSearchClick() {
-    this.props.actions.searchMovie(this.state.searchTitle)
+    if (this.state.searchTitle === '') {
+      this.setState({ searchTitleValid: false })
+    }
+    else {
+      this.setState({ searchTitleValid: true })
+      this.props.actions.searchMovie(this.state.searchTitle);
+    }
   }
 
   onEnterPress(e) {
     if (e.key === 'Enter') {
-      e.preventDefault();
-      this.props.actions.searchMovie(this.state.searchTitle)
+      if (this.state.searchTitle === '') {
+        this.setState({ searchTitleValid: false })
+      }
+      else {
+        this.setState({ searchTitleValid: true })
+        e.preventDefault();
+        this.props.actions.searchMovie(this.state.searchTitle)
+      }
     }
   }
 
@@ -49,13 +62,14 @@ class App extends Component {
       <div className="App">
         <Header />
         <SearchMovie
+          searchTitleValid={this.state.searchTitleValid}
           onSearchClick={this.onSearchClick}
           onLuckyClick={this.onLuckyClick}
           onSearchValueChange={this.onSearchValueChange}
           onEnterPress={this.onEnterPress}
         />
         <MovieList movies={this.props.movies} loading={this.props.loading} />
-        <Footer url='Movielist' footerText='Movie List'/>
+        <Footer url='Movielist' footerText='Movie List' />
       </div>
     );
   }

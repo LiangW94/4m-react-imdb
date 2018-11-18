@@ -6,11 +6,12 @@ import React from 'react';
 //     }
 // }
 
-const SearchMovie = ({ onSearchClick, onLuckyClick, onSearchValueChange, onEnterPress }) => {
+const SearchMovie = ({ onSearchClick, onLuckyClick, onSearchValueChange, onEnterPress, searchTitleValid }) => {
     return (
         <div style={{ paddingTop: '160px', display: 'flex', justifyContent: 'center', flexWrap: "wrap" }}>
             <div style={{ flex: '100%' }} >
                 <input style={{ maxWidth: "30%", margin: "0 auto" }} className=" bd-highlight form-control" type="text" placeholder="Movie Full Name" aria-label="Search" onChange={e => onSearchValueChange(e)} onKeyPress={e => onEnterPress(e)}></input>
+                {searchTitleValid?<p></p>:<p style={{color: 'red'}}>Title is empty</p>}
             </div>
             <div style={{ display: 'flex', flex: '0', justifyContent: 'center', marginTop: "30px" }}>
                 <button className="btn btn-secondary" style={{ marginRight: "30px" }} type="button" onClick={onSearchClick}>Search</button>

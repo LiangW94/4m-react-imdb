@@ -7,7 +7,7 @@ import * as serviceWorker from './util/serviceWorker';
 import { Provider } from 'react-redux';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import configureStore from './store/configureStore';
-import TodoPage from './components/Todo/TodoPage';
+import MovieManagePage from './components/Todo/MovieManagePage';
 
 const store = configureStore();
 // store.dispatch(loadMovie());
@@ -17,7 +17,7 @@ ReactDOM.render(
         <BrowserRouter>
             <Switch>
                 <Route path="/" component={App} exact/>
-                <Route path="/Movielist" component={TodoPage} />
+                <Route path="/Movielist" component={MovieManagePage} />
             </Switch>
 
         </BrowserRouter>

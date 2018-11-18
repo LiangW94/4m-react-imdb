@@ -2,9 +2,9 @@ import React from 'react';
 import Header from '../Common/Header/Header';
 import Footer from '../Common/Footer/Footer';
 
-const TodoPage = ({ movies, loading }) => {
+const MovieManagePage = () => {
     return (
-        <div className="Todo">
+        <div className="MovieManagePage">
         <Header />
 
         <Footer url='/' footerText='Back Home'/>
@@ -12,4 +12,4 @@ const TodoPage = ({ movies, loading }) => {
     )
 }
 
-export default TodoPage;
+export default MovieManagePage;

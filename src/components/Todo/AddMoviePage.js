@@ -32,9 +32,6 @@ class LocalMoviePage extends Component {
 
         this.props.history.push('/Movielist');
     }
-    generateId() {
-
-    }
 
     render() {
         return (

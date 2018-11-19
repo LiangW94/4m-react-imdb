@@ -10,15 +10,19 @@ class MovieManagePage extends Component {
     constructor(props, context) {
         super(props, context);
 
-        // this.state = {
-        //     localMovies: Object.assign({}, props.localMovies),
-        // };
+        this.state = {
+            localMovies: Object.assign({}, props.localMovies),
+        };
 
-     this.handleRemove = this.handleRemove.bind(this);
+        this.handleRemove = this.handleRemove.bind(this);
     }
 
-    handleRemove(e){
-        console.log("from the parent: " + e);
+    handleRemove(e) {
+        // console.log(e)
+        // let a = this.props.localMovies.splice(e, 1);
+        // console.log(a)
+        // this.setState({localMovies: a})
+        this.props.actions.reomveMovie(this.state, e);
     }
 
     render() {

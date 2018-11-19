@@ -17,7 +17,7 @@ const LocalMovieList = ({ localMovies, handleRemove }) => {
                 </thead>
                 <tbody>
                     {localMovies.map((movie, index) =>
-                        <MovieListRow key={index} movie={movie.localMovies} onClick={handleRemove} id={index} />
+                        <MovieListRow key={index} movie={movie.localMovies} onClick={handleRemove} id={movie.id} />
                     )}
                 </tbody>
             </table>

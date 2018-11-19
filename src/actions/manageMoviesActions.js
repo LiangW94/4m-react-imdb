@@ -11,3 +11,13 @@ export function createMovie(localMovies) {
         dispatch(createMovieSuccess(localMovies))
     }
 }
+
+export function removeMovieSuccess(localMovies,id) {
+    return { type: actionTypes.REMOVE_MOVIE_SUCCESS, localMovies ,id }
+}
+
+export function reomveMovie(localMovies, id) {
+    return function (dispatch) {
+        dispatch(removeMovieSuccess(localMovies,id))
+    }
+}

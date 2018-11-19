@@ -21,3 +21,13 @@ export function reomveMovie(localMovies, id) {
         dispatch(removeMovieSuccess(localMovies,id))
     }
 }
+
+export function updateMovieSuccess(localMovies,id) {
+    return { type: actionTypes.UPDATE_MOVIE_SUCCESS, localMovies ,id }
+}
+
+export function updateMovie(localMovies, id) {
+    return function (dispatch) {
+        dispatch(updateMovieSuccess(localMovies,id))
+    }
+}

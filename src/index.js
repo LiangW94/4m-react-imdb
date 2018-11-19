@@ -18,8 +18,9 @@ ReactDOM.render(
         <BrowserRouter>
             <Switch>
                 <Route path="/" component={App} exact />
-                <Route path="/Movielist" component={MovieManagePage} />
-                <Route path="/Addmovie" component={AddMoviePage} />
+                <Route path="/movielist" component={MovieManagePage} />
+                <Route path="/addmovie" component={AddMoviePage} exact/>
+                <Route path="/addmovie/:id" component={AddMoviePage} />
             </Switch>
 
         </BrowserRouter>

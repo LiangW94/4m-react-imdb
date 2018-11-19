@@ -1,10 +1,10 @@
 import React from 'react';
 import TextInput from '../Common/TextInput';
 
-const LocalMovieForm = ({ movie, onSave, onChange }) => {
+const LocalMovieForm = ({ movie, onSave, onChange, formTitle, buttonValue }) => {
     return (
         <form style={{ margin: '160px auto', maxWidth: '30%' }}>
-            <h3>Add a Movie</h3>
+            <h3>{formTitle}</h3>
             <TextInput
                 name="Title"
                 label="Title"
@@ -35,6 +35,7 @@ const LocalMovieForm = ({ movie, onSave, onChange }) => {
             />
             <input
                 type="submit"
+                value={buttonValue}
                 className="btn btn-secondary"
                 onClick={onSave} />
         </form>
